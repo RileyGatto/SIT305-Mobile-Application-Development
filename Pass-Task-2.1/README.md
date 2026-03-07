@@ -15,3 +15,8 @@ This file contains all the colors I have created. I have assigned them a name an
 ## strings.xml
 
 This file contains all the strings I am using and the value of the string.
+
+## Hardware
+
+I have used an emulator for a android phone running Android 16.0 (Baklava)
+

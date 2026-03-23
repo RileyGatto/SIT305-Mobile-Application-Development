@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PassTask4.1P</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_time">Select Time</string>
+    <string name="save_event">Save Event</string>
+    <string name="event_title">Event Title</string>
+    <string name="location">Location</string>
+    <string name="personal_event_planner">Personal Event Planner</string>
+    <string name="upcoming_events">Upcoming Events</string>
+    <string name="add">Add</string>
+    <string name="events">Events</string>
+    <string name="delete">Delete</string>
+    <string name="title">Title</string>
+    <string name="date_yyyy_mm_dd">Date (yyyy-MM-dd)</string>
+    <string name="location2">Location</string>
+    <string name="time">Time</string>
+</resources>

@@ -2,7 +2,7 @@
 
 ## MainActivity.java
 
-This file contains my java code. The java code is used for when the user interacts with my app. It populates the spinners, calcuations and user input.
+This file contains my java code. The java code is used for when the user interacts with my app it calls the other java classes
 
 ## Event.java
 This is the Room Entity class. It defines the structure of the event table in the database, including fields such as title, category, location, date, and time.
@@ -24,7 +24,7 @@ Displays all saved events using a RecyclerView. It retrieves data from the Room 
 
 ## activity_main.xml
 
-This file was used to design the UI of my app and the different UI widgets. Everything you see is designed in this file. I have used a linear layout instead of a constrait layout for my project
+This file was used to design the UI of my app and the different UI widgets. I have used a linear layout instead of a constrait layout for my project
 
 ## create_fragment.xml
 UI layout for adding new events.

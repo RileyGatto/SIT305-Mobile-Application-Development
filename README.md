@@ -6,7 +6,7 @@
 
 - Pass Task 2.1 (Complete)
 
-- Pass Task 4.1 (In Progress)
+- Pass Task 4.1 (Complete)
 
 - Pass Task 7.1 (In Progress)
 

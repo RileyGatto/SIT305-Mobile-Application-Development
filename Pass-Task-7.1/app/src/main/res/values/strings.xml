@@ -3,4 +3,13 @@
     <string name="create_a_new_advert">CREATE A NEW ADVERT</string>
     <string name="show_all_lost_found_items"><![CDATA[SHOW ALL LOST & FOUND ITEMS]]></string>
     <string name="post_type">Post type:</string>
+    <string name="lost">Lost</string>
+    <string name="found">Found</string>
+    <string name="name">Name:</string>
+    <string name="phone">Phone:</string>
+    <string name="description">Description:</string>
+    <string name="date">Date:</string>
+    <string name="location">Location:</string>
+    <string name="save">SAVE</string>
+    <string name="lost_found_items"><![CDATA[LOST & FOUND ITEMS]]></string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,42 +10,57 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Post Type -->
-        <TextView
-            android:text="@string/post_type"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <RadioGroup
+        <LinearLayout
             android:orientation="horizontal"
-            android:layout_marginBottom="10dp"
-            android:layout_height="24dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
 
+            <TextView
+                android:text="@string/post_type"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"/>
 
-            <RadioButton
-                android:id="@+id/rbLost"
-                android:text="Lost"/>
+            <RadioGroup
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <RadioButton
-                android:id="@+id/rbFound"
-                android:text="Found"/>
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/rbLost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lost"
+                    android:textSize="15sp"/>
+
+                <RadioButton
+                    android:id="@+id/rbFound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/found"
+                    android:textSize="15sp"/>
+            </RadioGroup>
+
+        </LinearLayout>
 
         <!-- Name -->
         <TextView
-            android:text="Name:"
+            android:text="@string/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/etName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            tools:ignore="Autofill,LabelFor"/>
 
         <!-- Phone -->
         <TextView
-            android:text="Phone:"
+            android:text="@string/phone"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -52,11 +68,13 @@
         <EditText
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            tools:ignore="Autofill,LabelFor"/>
 
         <!-- Description -->
         <TextView
-            android:text="Description:"
+            android:text="@string/description"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -64,11 +82,13 @@
         <EditText
             android:id="@+id/etDesc"
             android:layout_width="match_parent"
-            android:layout_height="100dp"/>
+            android:layout_height="100dp"
+            android:inputType="text"
+            tools:ignore="Autofill,LabelFor"/>
 
         <!-- Date -->
         <TextView
-            android:text="Date:"
+            android:text="@string/date"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -76,11 +96,13 @@
         <EditText
             android:id="@+id/etDate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            tools:ignore="Autofill,LabelFor"/>
 
         <!-- Location -->
         <TextView
-            android:text="Location:"
+            android:text="@string/location"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -88,15 +110,16 @@
         <EditText
             android:id="@+id/etLocation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            tools:ignore="Autofill,LabelFor"/>
 
         <!-- Save Button -->
         <Button
             android:id="@+id/btnSave"
-            android:text="SAVE"
+            android:text="@string/save"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
     </LinearLayout>
 </ScrollView>

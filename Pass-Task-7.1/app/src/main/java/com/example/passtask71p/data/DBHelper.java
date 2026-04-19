@@ -10,7 +10,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //used for testing purposes to trigger new version
     public DBHelper(Context context) {
-        super(context, "LF.db", null, 3);
+        super(context, "LF.db", null, 5);
     }
 
     @Override

@@ -63,7 +63,7 @@ public class ItemActivity extends AppCompatActivity {
             phone.setText("Phone: " + phoneStr);
             desc.setText("Description: " + descStr);
             location.setText("Location: " + locStr);
-            date.setText(getDaysAgo(dateStr));
+            date.setText("Listing Created: " + getDaysAgo(dateStr));
 
             // IMAGE LOAD
             if (imageStr != null && !imageStr.isEmpty()) {

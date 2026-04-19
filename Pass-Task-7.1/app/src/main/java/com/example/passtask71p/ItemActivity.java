@@ -1,6 +1,7 @@
 package com.example.passtask71p;
 
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
@@ -66,11 +67,9 @@ public class ItemActivity extends AppCompatActivity {
 
             // IMAGE LOAD
             if (imageStr != null && !imageStr.isEmpty()) {
-                android.util.Log.d("IMG_DEBUG", imageStr);
-                Glide.with(this)
-                        .load(Uri.parse(imageStr))
-                        .placeholder(android.R.drawable.ic_menu_report_image)
-                        .into(image);
+
+                Bitmap bitmap = ImageUtil.base64ToBitmap(imageStr);
+                image.setImageBitmap(bitmap);
 
             } else {
                 image.setImageResource(android.R.drawable.ic_menu_report_image);

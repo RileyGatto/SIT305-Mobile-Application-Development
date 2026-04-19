@@ -1,6 +1,7 @@
 package com.example.passtask71p;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -127,29 +128,21 @@ public class AddActivity extends AppCompatActivity {
 
             Uri uri = data.getData();
 
-            if (uri != null) {
-                //imagepreview
-                imageUri = uri.toString();
+            try {
+                Bitmap bitmap = android.provider.MediaStore.Images.Media.getBitmap(
+                        this.getContentResolver(),
+                        uri
+                );
 
-                ImageView preview = findViewById(R.id.imagePreview); // add one temporarily
+                // Convert to Base64
+                imageUri = ImageUtil.bitmapToBase64(bitmap);
 
-                preview.setImageURI(uri);
+                // Preview
+                ImageView preview = findViewById(R.id.imagePreview);
+                preview.setImageBitmap(bitmap);
 
-                // 🔥 THIS IS THE KEY FIX
-                final int takeFlags = data.getFlags()
-                        & (Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-                try {
-                    getContentResolver().takePersistableUriPermission(
-                            uri,
-                            Intent.FLAG_GRANT_READ_URI_PERMISSION
-                    );
-                } catch (Exception ignored) {
-                    // some providers don't support persistable permission
-                }
-
-                imageUri = uri.toString();
-                Toast.makeText(this, imageUri, Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

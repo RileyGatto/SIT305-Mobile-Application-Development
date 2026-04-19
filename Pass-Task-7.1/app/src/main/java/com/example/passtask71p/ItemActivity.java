@@ -1,14 +1,13 @@
 package com.example.passtask71p;
 
+import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.bumptech.glide.Glide;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +22,7 @@ public class ItemActivity extends AppCompatActivity {
     DBHelper db;
     int id;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +61,7 @@ public class ItemActivity extends AppCompatActivity {
             category.setText("Category: " + categoryStr);
             name.setText("Name: " + nameStr);
             phone.setText("Phone: " + phoneStr);
-            desc.setText(descStr);
+            desc.setText("Description: " + descStr);
             location.setText("Location: " + locStr);
             date.setText(getDaysAgo(dateStr));
 
@@ -91,18 +91,17 @@ public class ItemActivity extends AppCompatActivity {
         });
     }
 
-    // =========================
-    // TIME FORMAT FUNCTION
-    // =========================
+    //Time Format class
     private String getDaysAgo(String dateString) {
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
             Date pastDate = sdf.parse(dateString);
 
             Calendar past = Calendar.getInstance();
             Calendar now = Calendar.getInstance();
 
+            assert pastDate != null;
             past.setTime(pastDate);
 
             int diff = now.get(Calendar.DAY_OF_YEAR)

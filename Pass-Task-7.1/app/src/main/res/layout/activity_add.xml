@@ -46,14 +46,15 @@
         </LinearLayout>
 
         <TextView
-            android:text="Category"
+            android:text="@string/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <Spinner
             android:id="@+id/categorySpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <!-- Name -->
         <TextView
@@ -66,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            tools:ignore="Autofill,LabelFor"/>
+            tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <!-- Phone -->
         <TextView
@@ -80,7 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
-            tools:ignore="Autofill,LabelFor"/>
+            tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <!-- Description -->
         <TextView
@@ -94,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:inputType="text"
-            tools:ignore="Autofill,LabelFor"/>
+            tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
 
         <!-- Date -->
         <TextView
@@ -108,7 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date"
-            tools:ignore="Autofill,LabelFor"/>
+            tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <!-- Location -->
         <TextView
@@ -122,18 +123,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            tools:ignore="Autofill,LabelFor"/>
+            tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
         <ImageView
             android:id="@+id/imagePreview"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:contentDescription="@string/image_preview"
             android:scaleType="centerCrop"/>
 
         <Button
             android:id="@+id/btnUploadImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Upload Image"/>
+            android:text="@string/upload_image"
+            tools:ignore="VisualLintButtonSize" />
+
+        <Button
+            android:id="@+id/btnHomeAdd"
+            android:text="@string/home"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="VisualLintButtonSize" />
 
         <!-- Save Button -->
         <Button
@@ -141,7 +152,8 @@
             android:text="@string/save"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            tools:ignore="VisualLintButtonSize" />
 
     </LinearLayout>
 </ScrollView>

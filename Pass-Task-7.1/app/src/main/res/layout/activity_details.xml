@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,6 +12,7 @@
 
         <!-- IMAGE -->
         <ImageView
+            android:contentDescription="@string/details"
             android:id="@+id/imgItem"
             android:layout_width="match_parent"
             android:layout_height="250dp"
@@ -65,13 +68,15 @@
             android:id="@+id/back_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Back"/>
+            android:text="@string/back"
+            tools:ignore="VisualLintButtonSize" />
 
         <Button
             android:id="@+id/remove_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Remove"/>
+            android:text="@string/removed"
+            tools:ignore="VisualLintButtonSize" />
 
     </LinearLayout>
 </ScrollView>

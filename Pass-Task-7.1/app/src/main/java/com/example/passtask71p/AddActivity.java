@@ -20,6 +20,7 @@ import com.example.passtask71p.data.DBHelper;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@SuppressWarnings("ALL")
 public class AddActivity extends AppCompatActivity {
 
     DBHelper db;
@@ -37,20 +38,11 @@ public class AddActivity extends AppCompatActivity {
         Spinner categorySpinner;
 
         categorySpinner = findViewById(R.id.categorySpinner);
-        String[] categories = {"Electronics", "Pets", "Wallets"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-
-                this,
-
-                android.R.layout.simple_spinner_dropdown_item,
-
-                categories
-
-        );
+        String[] categories = {"Electronics", "Pets", "Clothing", "Stationary", "Other"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, categories);
         categorySpinner.setAdapter(adapter);
-        // ========================
-        // IMAGE UPLOAD BUTTON
-        // ========================
+
+        //Image upload button
         Button upload = findViewById(R.id.btnUploadImage);
 
         upload.setOnClickListener(v -> {
@@ -59,9 +51,13 @@ public class AddActivity extends AppCompatActivity {
             startActivityForResult(intent, PICK_IMAGE);
         });
 
-        // ========================
-        // SAVE BUTTON
-        // ========================
+        //Home Button
+        Button home = findViewById(R.id.btnHomeAdd);
+        home.setOnClickListener(v ->
+                startActivity(new Intent(this, MainActivity.class))
+        );
+
+        //Save Button
         Button save = findViewById(R.id.btnSave);
 
         save.setOnClickListener(view -> {
@@ -77,49 +73,31 @@ public class AddActivity extends AppCompatActivity {
 
             String date = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date());
 
-            // =========================
-            // VALIDATION (IMPORTANT)
-            // =========================
-            if (name.isEmpty() ||
-                    phone.isEmpty() ||
-                    desc.isEmpty() ||
-                    location.isEmpty() ||
-                    imageUri.isEmpty()) {
-
-                Toast.makeText(this,
-                        "Please fill all fields and upload an image",
-                        Toast.LENGTH_SHORT).show();
-                return; // STOP HERE
+            //Valadation
+            if (name.isEmpty() || phone.isEmpty() || desc.isEmpty() || location.isEmpty() || imageUri.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields and upload an image", Toast.LENGTH_SHORT).show();
+                return;
             }
 
-            boolean outcome = db.insert(
-                    type,
-                    category,
-                    name,
-                    phone,
-                    desc,
-                    location,
-                    imageUri,
-                    date
+            //insert new post in database
+            boolean outcome = db.insert(type, category, name, phone, desc, location, imageUri, date
             );
 
             if (outcome) {
                 Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
-
                 Intent intent = new Intent(AddActivity.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
 
-            } else {
+            }
+            else {
                 Toast.makeText(this, "Error Saving item", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    // ========================
-    // IMAGE RESULT HANDLER
-    // ========================
+    //Image Handling
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -130,8 +108,7 @@ public class AddActivity extends AppCompatActivity {
 
             try {
                 Bitmap bitmap = android.provider.MediaStore.Images.Media.getBitmap(
-                        this.getContentResolver(),
-                        uri
+                        this.getContentResolver(), uri
                 );
 
                 // Convert to Base64

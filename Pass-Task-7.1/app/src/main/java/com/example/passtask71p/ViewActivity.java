@@ -25,14 +25,6 @@ public class ViewActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Spinner filter;
 
-    // FULL DATA SET (matches improved adapter)
-    ArrayList<Integer> ids = new ArrayList<>();
-    ArrayList<String> type = new ArrayList<>();
-
-    ArrayList<String> name = new ArrayList<>();
-    ArrayList<String> location = new ArrayList<>();
-    ArrayList<String> date = new ArrayList<>();
-
     adapter adapterObj;
 
     @Override
@@ -48,10 +40,8 @@ public class ViewActivity extends AppCompatActivity {
 
         filter = findViewById(R.id.categoryFilter);
 
-        // ========================
-        // SPINNER SETUP
-        // ========================
-        String[] categories = {"All", "Electronics", "Pets", "Wallets"};
+        //Spinner Setup
+        String[] categories = {"All", "Electronics", "Pets", "Clothing", "Stationary", "Other"};
 
         ArrayAdapter<String> spinAdapter = new ArrayAdapter<>(
                 this,
@@ -86,9 +76,7 @@ public class ViewActivity extends AppCompatActivity {
         loadData();
     }
 
-    // ========================
-    // LOAD DATA (FIXED)
-    // ========================
+    //Load Data
     void loadData() {
 
         String selected = filter.getSelectedItem().toString();

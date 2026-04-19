@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
+
+    //used for testing purposes to trigger new version
     public DBHelper(Context context) {
         super(context, "LF.db", null, 3);
     }
@@ -30,9 +32,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "date TEXT)");
     }
 
-    public boolean insert(String type, String category, String name,
-                          String phone, String desc, String location,
-                          String image, String date) {
+    public boolean insert(String type, String category, String name, String phone, String desc, String location, String image, String date) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();

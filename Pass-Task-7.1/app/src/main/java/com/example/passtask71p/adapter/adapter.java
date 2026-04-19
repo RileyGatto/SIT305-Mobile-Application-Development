@@ -1,5 +1,6 @@
 package com.example.passtask71p.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -17,19 +18,15 @@ import java.util.List;
 
 public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
 
-    List<Integer> ids;
+    //Local Variables to store data
+    List<Integer> ids; //Unique ID for each entre
     List<String> type;
     List<String> name;
     List<String> location;
     List<String> date;
     Context context;
 
-    public adapter(Context context,
-                   List<Integer> ids,
-                   List<String> type,
-                   List<String> name,
-                   List<String> location,
-                   List<String> date) {
+    public adapter(Context context, List<Integer> ids, List<String> type, List<String> name, List<String> location, List<String> date) {
 
         this.context = context;
         this.ids = ids;
@@ -77,10 +74,8 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
         return ids.size();
     }
 
-    public void updateData(List<Integer> ids,
-                           List<String> type,
-                           List<String> location,
-                           List<String> date) {
+    @SuppressLint("NotifyDataSetChanged")
+    public void updateData(List<Integer> ids, List<String> type, List<String> location, List<String> date) {
 
         this.ids.clear();
         this.type.clear();

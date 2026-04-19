@@ -29,14 +29,14 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/rbLost"
+                    android:id="@+id/Lost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/lost"
                     android:textSize="15sp"/>
 
                 <RadioButton
-                    android:id="@+id/rbFound"
+                    android:id="@+id/Found"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/found"
@@ -45,6 +45,16 @@
 
         </LinearLayout>
 
+        <TextView
+            android:text="Category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Spinner
+            android:id="@+id/categorySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <!-- Name -->
         <TextView
             android:text="@string/name"
@@ -52,7 +62,7 @@
             android:layout_height="wrap_content"/>
 
         <EditText
-            android:id="@+id/etName"
+            android:id="@+id/Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -66,7 +76,7 @@
             android:layout_height="wrap_content"/>
 
         <EditText
-            android:id="@+id/etPhone"
+            android:id="@+id/Phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
@@ -80,7 +90,7 @@
             android:layout_height="wrap_content"/>
 
         <EditText
-            android:id="@+id/etDesc"
+            android:id="@+id/Description"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:inputType="text"
@@ -94,7 +104,7 @@
             android:layout_height="wrap_content"/>
 
         <EditText
-            android:id="@+id/etDate"
+            android:id="@+id/Date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date"
@@ -108,11 +118,22 @@
             android:layout_height="wrap_content"/>
 
         <EditText
-            android:id="@+id/etLocation"
+            android:id="@+id/Location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
             tools:ignore="Autofill,LabelFor"/>
+        <ImageView
+            android:id="@+id/imagePreview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"/>
+
+        <Button
+            android:id="@+id/btnUploadImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Image"/>
 
         <!-- Save Button -->
         <Button
@@ -121,5 +142,6 @@
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
     </LinearLayout>
 </ScrollView>

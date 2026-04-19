@@ -1,4 +1,122 @@
 package com.example.passtask71p;
 
-public class ItemActivity {
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.bumptech.glide.Glide;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.passtask71p.data.DBHelper;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class ItemActivity extends AppCompatActivity {
+
+    DBHelper db;
+    int id;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_details);
+
+        db = new DBHelper(this);
+
+        id = getIntent().getIntExtra("id", -1);
+
+        // UI elements
+        ImageView image = findViewById(R.id.imgItem);
+
+        TextView title = findViewById(R.id.txtTitle);
+        TextView category = findViewById(R.id.txtCategory);
+        TextView name = findViewById(R.id.txtName);
+        TextView phone = findViewById(R.id.txtPhone);
+        TextView desc = findViewById(R.id.txtDesc);
+        TextView date = findViewById(R.id.txtDate);
+        TextView location = findViewById(R.id.txtLocation);
+
+        Cursor cursor = db.getItemById(id);
+
+        if (cursor.moveToFirst()) {
+
+            String type = cursor.getString(1);
+            String categoryStr = cursor.getString(2);
+            String nameStr = cursor.getString(3);
+            String phoneStr = cursor.getString(4);
+            String descStr = cursor.getString(5);
+            String locStr = cursor.getString(6);
+            String imageStr = cursor.getString(7);
+            String dateStr = cursor.getString(8);
+
+            // SET DATA
+            title.setText(type + " - " + nameStr);
+            category.setText("Category: " + categoryStr);
+            name.setText("Name: " + nameStr);
+            phone.setText("Phone: " + phoneStr);
+            desc.setText(descStr);
+            location.setText("Location: " + locStr);
+            date.setText(getDaysAgo(dateStr));
+
+            // IMAGE LOAD
+            if (imageStr != null && !imageStr.isEmpty()) {
+                android.util.Log.d("IMG_DEBUG", imageStr);
+                Glide.with(this)
+                        .load(Uri.parse(imageStr))
+                        .placeholder(android.R.drawable.ic_menu_report_image)
+                        .into(image);
+
+            } else {
+                image.setImageResource(android.R.drawable.ic_menu_report_image);
+            }
+        }
+
+        cursor.close();
+
+        // BACK BUTTON
+        Button back = findViewById(R.id.back_button);
+        back.setOnClickListener(v -> finish());
+
+        // DELETE BUTTON
+        Button remove = findViewById(R.id.remove_button);
+        remove.setOnClickListener(view -> {
+            db.delete(id);
+            Toast.makeText(this, "Item has been removed", Toast.LENGTH_SHORT).show();
+            finish();
+        });
+    }
+
+    // =========================
+    // TIME FORMAT FUNCTION
+    // =========================
+    private String getDaysAgo(String dateString) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+
+            Date pastDate = sdf.parse(dateString);
+
+            Calendar past = Calendar.getInstance();
+            Calendar now = Calendar.getInstance();
+
+            past.setTime(pastDate);
+
+            int diff = now.get(Calendar.DAY_OF_YEAR)
+                    - past.get(Calendar.DAY_OF_YEAR)
+                    + (now.get(Calendar.YEAR) - past.get(Calendar.YEAR)) * 365;
+
+            if (diff == 0) return "Today";
+            if (diff == 1) return "Yesterday";
+
+            return diff + " days ago";
+
+        } catch (Exception e) {
+            return dateString;
+        }
+    }
 }

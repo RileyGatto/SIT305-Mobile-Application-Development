@@ -12,4 +12,8 @@
     <string name="location">Location:</string>
     <string name="save">SAVE</string>
     <string name="lost_found_items"><![CDATA[LOST & FOUND ITEMS]]></string>
+    <string name="remove">REMOVE</string>
+    <string name="home">HOME</string>
+    <string name="add">ADD</string>
+    <string name="Back">Back</string>
 </resources>

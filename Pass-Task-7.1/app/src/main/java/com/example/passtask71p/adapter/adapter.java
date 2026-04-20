@@ -79,13 +79,13 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
 
         this.ids.clear();
         this.type.clear();
-        this.name.clear();       // ADD THIS
+        this.name.clear();       
         this.location.clear();
         this.date.clear();
 
         this.ids.addAll(ids);
         this.type.addAll(type);
-        this.name.addAll(name);  // ADD THIS
+        this.name.addAll(name);  
         this.location.addAll(location);
         this.date.addAll(date);
 

@@ -75,15 +75,17 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void updateData(List<Integer> ids, List<String> type, List<String> location, List<String> date) {
+    public void updateData(List<Integer> ids, List<String> type, List<String> name, List<String> location, List<String> date) {
 
         this.ids.clear();
         this.type.clear();
+        this.name.clear();       // ADD THIS
         this.location.clear();
         this.date.clear();
 
         this.ids.addAll(ids);
         this.type.addAll(type);
+        this.name.addAll(name);  // ADD THIS
         this.location.addAll(location);
         this.date.addAll(date);
 

@@ -114,7 +114,7 @@ public class ViewActivity extends AppCompatActivity {
             adapterObj = new adapter(this, newIds, newType, newName, newLocation, newDate);
             recyclerView.setAdapter(adapterObj);
         } else {
-            adapterObj.updateData(newIds, newType, newLocation, newDate);
+            adapterObj.updateData(newIds, newType, newName, newLocation, newDate);
         }
     }
 }

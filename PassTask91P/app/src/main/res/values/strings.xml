@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">PassTask7.1P</string>
+    <string name="create_a_new_advert">CREATE A NEW ADVERT</string>
+    <string name="show_all_lost_found_items"><![CDATA[SHOW ALL LOST & FOUND ITEMS]]></string>
+    <string name="post_type">Post type:</string>
+    <string name="lost">Lost</string>
+    <string name="found">Found</string>
+    <string name="name">Name:</string>
+    <string name="phone">Phone:</string>
+    <string name="description">Description:</string>
+    <string name="date">Date:</string>
+    <string name="location">Location:</string>
+    <string name="save">SAVE</string>
+    <string name="lost_found_items"><![CDATA[LOST & FOUND ITEMS]]></string>
+    <string name="remove">REMOVE</string>
+    <string name="home">HOME</string>
+    <string name="add">ADD</string>
+    <string name="Back">Back</string>
+    <string name="category">Category</string>
+    <string name="image_preview">Image Preview</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="back">Back</string>
+    <string name="image_of_event">Image of Event</string>
+    <string name="details">Details</string>
+    <string name="removed">REMOVE</string>
+</resources>

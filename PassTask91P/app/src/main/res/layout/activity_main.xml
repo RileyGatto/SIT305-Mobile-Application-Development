@@ -28,4 +28,13 @@
         android:textSize="24sp"
         android:text="@string/show_all_lost_found_items"/>
 
+    <Button
+        android:id="@+id/show_map_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:text="@string/show_on_map"/>
+
 </androidx.appcompat.widget.LinearLayoutCompat>

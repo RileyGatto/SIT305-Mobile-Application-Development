@@ -124,6 +124,14 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+        <Button
+            android:id="@+id/location_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/get_current_location"
+            tools:ignore="VisualLintButtonSize" />
+
         <ImageView
             android:id="@+id/imagePreview"
             android:layout_width="match_parent"

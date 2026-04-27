@@ -28,6 +28,8 @@ public class AddActivity extends AppCompatActivity {
     private static final int PICK_IMAGE = 1;
     String imageUri = "";
 
+    double lat = 0, lng = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,24 @@ public class AddActivity extends AppCompatActivity {
         String[] categories = {"Electronics", "Pets", "Clothing", "Stationary", "Other"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, categories);
         categorySpinner.setAdapter(adapter);
+
+        Button locationBtn = findViewById(R.id.location_btn);
+
+        locationBtn.setOnClickListener(v -> {
+
+            FusedLocationProviderClient client =
+                    LocationServices.getFusedLocationProviderClient(this);
+
+            client.getLastLocation().addOnSuccessListener(location -> {
+                if (location != null) {
+                    lat = location.getLatitude();
+                    lng = location.getLongitude();
+
+                    ((EditText)findViewById(R.id.Location))
+                            .setText("Lat: " + lat + ", Lng: " + lng);
+                }
+            });
+        });
 
         //Image upload button
         Button upload = findViewById(R.id.btnUploadImage);
@@ -89,7 +109,6 @@ public class AddActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
-
             }
             else {
                 Toast.makeText(this, "Error Saving item", Toast.LENGTH_SHORT).show();

@@ -10,7 +10,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //used for testing purposes to trigger new version
     public DBHelper(Context context) {
-        super(context, "LF.db", null, 5);
+        super(context, "LF.db", null, 6);
     }
 
     @Override
@@ -28,11 +28,13 @@ public class DBHelper extends SQLiteOpenHelper {
                 "phone TEXT,"+
                 "description TEXT," +
                 "location TEXT,"+
+                "latitude REAL," +
+                "longitude REAL," +
                 "image TEXT," +
                 "date TEXT)");
     }
 
-    public boolean insert(String type, String category, String name, String phone, String desc, String location, String image, String date) {
+    public boolean insert(String type, String category, String name, String phone, String desc, String location, double latitude, double longitude, String image, String date) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -43,6 +45,8 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put("phone", phone);
         cv.put("description", desc);
         cv.put("location", location);
+        cv.put("latitude", latitude);
+        cv.put("longitude", longitude);
         cv.put("image", image);
         cv.put("date", date);
 

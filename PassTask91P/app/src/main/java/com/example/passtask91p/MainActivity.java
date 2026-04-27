@@ -26,10 +26,15 @@ public class MainActivity extends AppCompatActivity {
 
         Button create = findViewById(R.id.create_button);
         Button show = findViewById(R.id.show_button);
+        Button map = findViewById(R.id.show_map_button);
 
         create.setOnClickListener(view -> startActivity(new Intent(this, AddActivity.class)) );
 
         show.setOnClickListener(view -> startActivity(new Intent(this, ViewActivity.class)));
+
+        map.setOnClickListener(v -> startActivity(new Intent(this, MapActivity.class)));
+
+
 
     }
 }

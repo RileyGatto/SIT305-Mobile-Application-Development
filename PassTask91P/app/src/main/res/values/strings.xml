@@ -23,4 +23,6 @@
     <string name="image_of_event">Image of Event</string>
     <string name="details">Details</string>
     <string name="removed">REMOVE</string>
+    <string name="show_on_map">SHOW ON MAP</string>
+    <string name="get_current_location">Get Current Location</string>
 </resources>

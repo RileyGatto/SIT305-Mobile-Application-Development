@@ -53,8 +53,8 @@ public class ItemActivity extends AppCompatActivity {
             String phoneStr = cursor.getString(4);
             String descStr = cursor.getString(5);
             String locStr = cursor.getString(6);
-            String imageStr = cursor.getString(7);
-            String dateStr = cursor.getString(8);
+            String imageStr = cursor.getString(9);
+            String dateStr = cursor.getString(10);
 
             // SET DATA
             title.setText(type + " - " + nameStr);

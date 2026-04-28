@@ -37,41 +37,30 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         Cursor cursor = db.getItems();
 
-// Example: user's current location
-        double userLat = -33.8688;  // replace later with real GPS
-        double userLng = 151.2093;
-
-// Example radius (km)
-        float radius = 5;
-
         if (cursor.moveToFirst()) {
             do {
-                double itemLat = cursor.getDouble(7);
-                double itemLng = cursor.getDouble(8);
+                double lat = cursor.getDouble(7);
+                double lng = cursor.getDouble(8);
                 String name = cursor.getString(3);
 
-                float[] results = new float[1];
+                // skip invalid coordinates
+                if (lat == 0 && lng == 0) continue;
 
-                android.location.Location.distanceBetween(
-                        userLat, userLng,
-                        itemLat, itemLng,
-                        results
-                );
+                LatLng location = new LatLng(lat, lng);
 
-                float distanceInKm = results[0] / 1000;
-
-                if (distanceInKm <= radius) {
-
-                    LatLng location = new LatLng(itemLat, itemLng);
-
-                    mMap.addMarker(new MarkerOptions()
-                            .position(location)
-                            .title(name));
-                }
+                mMap.addMarker(new MarkerOptions()
+                        .position(location)
+                        .title(name));
 
             } while (cursor.moveToNext());
         }
 
         cursor.close();
+
+        // Zoom out to show Australia
+        mMap.moveCamera(com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(
+                new LatLng(-25.2744, 133.7751), // center of Australia
+                4f
+        ));
     }
 }

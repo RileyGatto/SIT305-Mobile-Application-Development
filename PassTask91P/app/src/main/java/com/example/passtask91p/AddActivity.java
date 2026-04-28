@@ -100,7 +100,7 @@ public class AddActivity extends AppCompatActivity {
             }
 
             //insert new post in database
-            boolean outcome = db.insert(type, category, name, phone, desc, location, imageUri, date
+            boolean outcome = db.insert(type, category, name, phone, desc, location, lat, lng, imageUri, date
             );
 
             if (outcome) {

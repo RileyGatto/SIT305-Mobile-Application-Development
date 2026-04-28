@@ -37,17 +37,37 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         Cursor cursor = db.getItems();
 
+// Example: user's current location
+        double userLat = -33.8688;  // replace later with real GPS
+        double userLng = 151.2093;
+
+// Example radius (km)
+        float radius = 5;
+
         if (cursor.moveToFirst()) {
             do {
-                double lat = cursor.getDouble(7);
-                double lng = cursor.getDouble(8);
+                double itemLat = cursor.getDouble(7);
+                double itemLng = cursor.getDouble(8);
                 String name = cursor.getString(3);
 
-                LatLng location = new LatLng(lat, lng);
+                float[] results = new float[1];
 
-                mMap.addMarker(new MarkerOptions()
-                        .position(location)
-                        .title(name));
+                android.location.Location.distanceBetween(
+                        userLat, userLng,
+                        itemLat, itemLng,
+                        results
+                );
+
+                float distanceInKm = results[0] / 1000;
+
+                if (distanceInKm <= radius) {
+
+                    LatLng location = new LatLng(itemLat, itemLng);
+
+                    mMap.addMarker(new MarkerOptions()
+                            .position(location)
+                            .title(name));
+                }
 
             } while (cursor.moveToNext());
         }

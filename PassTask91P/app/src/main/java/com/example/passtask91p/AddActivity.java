@@ -99,7 +99,7 @@ public class AddActivity extends AppCompatActivity {
                     lng = newLng;
 
                     ((EditText)findViewById(R.id.Location))
-                            .setText("Location Set ✓");
+                            .setText("Location Set");
 
                     Toast.makeText(this,
                             "Lat: " + lat + " Lng: " + lng,

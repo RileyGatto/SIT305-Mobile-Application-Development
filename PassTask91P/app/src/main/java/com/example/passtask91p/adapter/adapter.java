@@ -19,7 +19,7 @@ import java.util.List;
 public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
 
     //Local Variables to store data
-    List<Integer> ids; //Unique ID for each entre
+    List<Integer> ids; //Unique ID for each entry
     List<String> type;
     List<String> name;
     List<String> location;
